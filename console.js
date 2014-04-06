@@ -33,6 +33,12 @@ module.exports = (function() {
     context.addCommand(basename, fn);
     process.stdout.write(basename + ' ');
   });
+  _.each(glob.sync(path.resolve('.', 'tasks', '**', '*.js')), function(filename) {
+    var basename = path.basename(filename, '.js');
+    var fn = require(filename);
+    context.addCommand(basename, fn);
+    process.stdout.write(basename + ' ');
+  });
   process.stdout.write('\n');
   context._ = _;
 
