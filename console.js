@@ -64,14 +64,14 @@ module.exports = (function() {
       _.each(glob.sync(path.join(__dirname, 'console', '**', '*.js')), function(filename) {
         var basename = path.basename(filename, '.js');
         process.stdout.write(basename + ' ');
-        var fn = require(filename);
+        var fn = require(path.join('.', filename));
         context.addCommand(basename, fn);
       });
       if (context.resolve(__dirname) != context.resolve('.')) {
         _.each(glob.sync(path.join('.', 'console', '**', '*.js')), function(filename) {
           var basename = path.basename(filename, '.js');
           process.stdout.write(basename + ' ');
-          var fn = require(filename);
+          var fn = require(path.join('.', filename));
           context.addCommand(basename, fn);
         });
       }
