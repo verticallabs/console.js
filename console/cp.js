@@ -8,16 +8,16 @@ module.exports = (function() {
   var cp = function(src, dest) {
     var deferred = Q.defer();
 
-    if(!fs.existsSync(path.resolve(src)) || fs.statSync(path.resolve(src)).isDirectory()) {
+    if(!fs.existsSync(resolve(src)) || fs.statSync(resolve(src)).isDirectory()) {
       throw new Error('Source path "' + src + '" does not exist');
     }
 
-    if(!fs.existsSync(path.resolve(dest)) || fs.statSync(path.resolve(dest)).isDirectory()) {
+    if(!fs.existsSync(resolve(dest)) || fs.statSync(resolve(dest)).isDirectory()) {
       throw new Error('Destination path "' + dest + '" does not exist');
     }
 
-    var rs = fs.createReadStream(path.resolve(src));
-    var ws = fs.createWriteStream(path.resolve(dest));
+    var rs = fs.createReadStream(resolve(src));
+    var ws = fs.createWriteStream(resolve(dest));
 
     ws.on('error', function(err) {
       deferred.reject(err);

@@ -2,9 +2,10 @@
   "name": "console",
   "version": "0.0.0",
   "description": "",
-  "main": "console.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive test --reporter spec --require './test/helpers'",
+    "test-debug": "mocha debug --recursive test --reporter spec --require './test/helpers'"
   },
   "author": "",
   "license": "BSD-2-Clause",
@@ -15,5 +16,10 @@
     "lodash": "~2.4.1",
     "glob": "~3.2.9",
     "npm": "~1.4.6"
+  },
+  "devDependencies": {
+    "chai-properties": "~1.1.0",
+    "chai-as-promised": "~4.1.1",
+    "chai": "~1.9.1"
   }
 }
