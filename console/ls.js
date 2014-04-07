@@ -1,6 +1,7 @@
 module.exports = (function() {
   'use strict';
 
+  var glob = require('glob');
   var ls = function(dir) {
     dir = dir || '.';
     if(dir.indexOf('*') < 0) {
