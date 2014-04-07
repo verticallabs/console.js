@@ -8,6 +8,9 @@
     "test-debug": "mocha debug --recursive test --reporter spec --require './test/helpers'"
   },
   "author": "",
+  "bin": {
+    "console": "./bin/console"
+  },
   "license": "BSD-2-Clause",
   "dependencies": {
     "colors": "~0.6.2",
